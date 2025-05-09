@@ -48,5 +48,17 @@ public class Dealership {
     public List<Vehicle> getVehiclesByType(String type) {
         return null;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
 }
 
