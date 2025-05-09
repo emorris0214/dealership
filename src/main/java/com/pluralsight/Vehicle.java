@@ -52,4 +52,10 @@ public class Vehicle {
     public String getColor() {
         return color;
     }
+
+    @Override
+    public String toString() {
+        return String.format("VIN: %d | Year: %d | Make: %s | Model: %s | Type: %s | Color: %s | Odometer: %d | Price: $%.2f",
+                vin, year, make, model, vehicleType, color, odometer, price);
+    }
 }

@@ -20,8 +20,17 @@ public class Dealership {
         inventory.add(vehicle);
     }
 
-    public void removeVehicle(Vehicle vehicle) {
-
+    public void removeVehicle(int vin) {
+        Vehicle toRemove = null;
+        for (Vehicle v : inventory) {
+            if (v.getVin() == vin) {
+                toRemove = v;
+                break;
+            }
+        }
+        if (toRemove != null) {
+            inventory.remove(toRemove);
+        }
     }
 
     public List<Vehicle> getAllVehicles() {
@@ -31,22 +40,58 @@ public class Dealership {
     // Methods for List
 
     public List<Vehicle> getVehiclesByPrice(double min, double max) {
-        return null;
+        List<Vehicle> result = new ArrayList<>();
+        for (Vehicle v : inventory) {
+            if (v.getPrice() >= min && v.getPrice() <= max) {
+                result.add(v);
+            }
+        }
+        return result;
     }
     public List<Vehicle> getVehiclesByMakeModel(String make, String model) {
-        return null;
+        List<Vehicle> result = new ArrayList<>();
+        for (Vehicle v : inventory) {
+            if (v.getMake().equalsIgnoreCase(make) && v.getModel().equalsIgnoreCase(model)) {
+                result.add(v);
+            }
+        }
+        return result;
     }
     public List<Vehicle> getVehiclesByYear(int min, int max) {
-        return null;
+        List<Vehicle> result = new ArrayList<>();
+        for (Vehicle v : inventory) {
+            if (v.getYear() >= min && v.getYear() <= max) {
+                result.add(v);
+            }
+        }
+        return result;
     }
     public List<Vehicle> getVehiclesByColor(String color) {
-        return null;
+        List<Vehicle> result = new ArrayList<>();
+        for (Vehicle v : inventory) {
+            if (v.getColor().equalsIgnoreCase(color)) {
+                result.add(v);
+            }
+        }
+        return result;
     }
     public List<Vehicle> getVehiclesByMileage(int min, int max) {
-        return null;
+        List<Vehicle> result = new ArrayList<>();
+        for (Vehicle v : inventory) {
+            if (v.getOdometer() >= min && v.getOdometer() <= max) {
+                result.add(v);
+            }
+        }
+        return result;
     }
     public List<Vehicle> getVehiclesByType(String type) {
-        return null;
+        List<Vehicle> result = new ArrayList<>();
+        for (Vehicle v : inventory) {
+            if (v.getVehicleType().equalsIgnoreCase(type)) {
+                result.add(v);
+            }
+        }
+        return result;
     }
 
     public String getName() {

@@ -41,13 +41,13 @@ public class DealershipFileManager {
         return dealership;
     }
 
-    public void saveDealership(Dealership dealership) {
+    public static void saveDealership(Dealership dealership) {
         try (PrintWriter writer = new PrintWriter(new FileWriter(FILE_NAME))) {
             // Dealership info on the first line
             writer.println(dealership.getName() + "|" + dealership.getAddress() + "|" + dealership.getPhone());
 
             for (Vehicle v : dealership.getAllVehicles()) {
-                writer.printf("%d|%d|%s|%s|%s|%d|%.2f\n",
+                writer.printf("%d|%d|%s|%s|%s|%s|%d|%.2f\n",
                         v.getVin(), v.getYear(), v.getMake(), v.getModel(), v.getVehicleType(), v.getColor(), v.getOdometer(), v.getPrice());
             }
         } catch (Exception e) {
