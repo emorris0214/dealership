@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class DealershipFileManager {
     private static final String FILE_NAME = "inventory.csv";
 
-    public Dealership getDealership() {
+    public com.pluralsight.Dealership getDealership() {
         Dealership dealership = null;
         try (Scanner keyboard = new Scanner(new File(FILE_NAME))) {
             if (keyboard.hasNextLine()) {
