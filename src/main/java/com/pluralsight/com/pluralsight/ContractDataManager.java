@@ -7,7 +7,7 @@ package com.pluralsight;
  * It delegates actual file saving to ContractFileManager.
  */
 public class ContractDataManager {
-    protected ContractFileManager fileManager;
+    protected static ContractFileManager fileManager = new ContractFileManager();
 
     // Constructor
     public ContractDataManager() {
@@ -20,16 +20,19 @@ public class ContractDataManager {
      *
      * @param contract The contract to be saved (either sale or lease)
      */
-    public void saveContract(Contract contract) {
+    public static void saveContract(Contract contract) {
         // Determine contract type
-        if (contract instanceof SalesContract) {
-            SalesContract salesContract = (SalesContract) contract;
-            fileManager.saveContract(salesContract);
-        } else if (contract instanceof LeaseContract) {
-            LeaseContract leaseContract = (LeaseContract) contract;
-            fileManager.saveContract(leaseContract);
-        } else {
-            System.out.println("Unknown contract type. Contract not saved.");
+        try {
+            if (contract instanceof SalesContract salesContract) {
+                fileManager.saveContract(salesContract);
+            } else if (contract instanceof LeaseContract leaseContract) {
+                fileManager.saveContract(leaseContract);
+            } else {
+                System.out.println("Unknown contract type. Contract not saved.");
+            }
+        } catch (NullPointerException e) {
+            e.printStackTrace();
         }
+
     }
 }

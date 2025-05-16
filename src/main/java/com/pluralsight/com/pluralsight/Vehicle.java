@@ -25,6 +25,10 @@ public class Vehicle {
         return vin;
     }
 
+    public void setVin(int vin) {
+        this.vin = vin;
+    }
+
     public int getYear() {
         return year;
     }
