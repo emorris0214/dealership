@@ -5,6 +5,7 @@ import com.pluralsight.*;
 import java.io.FileWriter;
 import java.io.IOException;
 
+//Persistence Layer (Appends contract data to contracts file)
 public class ContractFileManager {
 
     private static final String CONTRACTS_FILE = "contracts.csv";
